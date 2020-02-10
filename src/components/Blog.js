@@ -24,29 +24,25 @@ function Blog() {
 
   return (
     <section className="container">
-      <div className="columns">
-        <div className="column is-2"></div>
-        <div className="column is-8">
-          {loading &&
-            <p>Loading...</p>
-          }
-          {reviews && reviews.length && reviews.map(review =>
-            <div key={review.id} className="padding--top">
-              <img src={review.review_picture_url} />
-              <h1 className="title is-1 is-primary margin-none">{review.title}</h1>
-              <div className="star-rating margin-half--bottom">
-                {review.star_rating >= 1 ? <FontAwesomeIcon icon="star" /> : <FontAwesomeIcon icon="star-half" />}
-                {review.star_rating >= 2 ? <FontAwesomeIcon icon="star" /> : (review.star_rating <= 1 ? '' : <FontAwesomeIcon icon="star-half" />)}
-                {review.star_rating >= 3 ? <FontAwesomeIcon icon="star" /> : (review.star_rating <= 2 ? '' : <FontAwesomeIcon icon="star-half" />)}
-                {review.star_rating >= 4 ? <FontAwesomeIcon icon="star" /> : (review.star_rating <= 3 ? '' : <FontAwesomeIcon icon="star-half" />)}
-                {review.star_rating >= 5 ? <FontAwesomeIcon icon="star" /> : (review.star_rating <= 4 ? '' : <FontAwesomeIcon icon="star-half" />)}
-              </div>
-              <h2 className="subtitle is-5">{review.subtitle}</h2>
-              <p className="text">{review.body}</p>
+      <div className="blog-stream">
+        {loading &&
+          <p>Loading...</p>
+        }
+        {reviews && reviews.length && reviews.map(review =>
+          <div key={review.id} className="padding--top">
+            <img src={review.review_picture_url} />
+            <h1 className="title is-1 is-primary margin-none">{review.title}</h1>
+            <div className="star-rating margin-half--bottom">
+              {review.star_rating >= 1 ? <FontAwesomeIcon icon="star" /> : <FontAwesomeIcon icon="star-half" />}
+              {review.star_rating >= 2 ? <FontAwesomeIcon icon="star" /> : (review.star_rating <= 1 ? '' : <FontAwesomeIcon icon="star-half" />)}
+              {review.star_rating >= 3 ? <FontAwesomeIcon icon="star" /> : (review.star_rating <= 2 ? '' : <FontAwesomeIcon icon="star-half" />)}
+              {review.star_rating >= 4 ? <FontAwesomeIcon icon="star" /> : (review.star_rating <= 3 ? '' : <FontAwesomeIcon icon="star-half" />)}
+              {review.star_rating >= 5 ? <FontAwesomeIcon icon="star" /> : (review.star_rating <= 4 ? '' : <FontAwesomeIcon icon="star-half" />)}
             </div>
-          )}
-        </div>
-        <div className="column is-2"></div>
+            <h2 className="subtitle is-5">{review.subtitle}</h2>
+            <p className="text">{review.body}</p>
+          </div>
+        )}
       </div>
     </section>
   );

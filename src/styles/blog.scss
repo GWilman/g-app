@@ -1,5 +1,10 @@
 @import './variables';
 
+.blog-stream {
+  max-width: 600px;
+  margin: auto;
+}
+
 .star-rating {
   color: $star-color;
 }
