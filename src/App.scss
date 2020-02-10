@@ -1,4 +1,26 @@
-// define variables
-$primary: #09d3ac;
+@import '~bulma/sass/utilities/initial-variables.sass';
+@import '~bulma/sass/utilities/functions.sass';
+@import '~bulma/sass/utilities/derived-variables.sass';
+
+@import './styles/variables';
+@import './styles/helpers';
 
 @import 'bulma';
+
+* {
+  transition: color .5s ease;
+  transition: background-color .5s ease;
+}
+
+div.app {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+section.container {
+  min-height: calc(100vh - 52px);
+
+  div.columns {
+    margin: 0;
+  }
+}

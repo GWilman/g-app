@@ -1,0 +1,26 @@
+
+// light and dark mode variables
+div.light {
+  --background-color: #fcfcfc;
+  --text-color: #4a4a4a;
+  --title-color: $text-strong;
+  --star-color: #ead640;
+}
+
+div.dark {
+  --background-color: #0d0d0d;
+  --text-color: #fff;
+  --title-color: #09d3ca;
+  --star-color: #feea58;
+}
+
+// define variables
+$primary: #09d3ca;
+$text: var(--text-color);
+$title-color: var(--title-color);
+$body-color: var(--text-color);
+$scheme-main: var(--background-color);
+$navbar-item-hover-color: $primary;
+$navbar-item-hover-background-color: var(--background-color);
+$navbar-item-active-color: $primary;
+$star-color: var(--star-color);
