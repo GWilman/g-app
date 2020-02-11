@@ -1,10 +1,28 @@
 @import './variables';
 
-.blog-stream {
-  max-width: 600px;
-  margin: auto;
-}
+#blog {
 
-.star-rating {
-  color: $star-color;
+  .blog-stream {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .star-rating {
+    color: $star-color;
+  }
+
+  .author-details {
+    align-items: center;
+    img {
+      max-height: 30px;
+      max-width: 30px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+  }
+
+  hr {
+    background-color: $primary;
+  }
+
 }
