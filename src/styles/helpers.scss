@@ -7,6 +7,38 @@
   }
 }
 
+.padding-none {
+  padding: 0rem !important;
+}
+.padding-none--top {
+  padding-top: 0rem;
+}
+.padding-none--right {
+  padding-right: 0rem;
+}
+.padding-none--bottom {
+  padding-bottom: 0rem;
+}
+.padding-none--left {
+  padding-left: 0rem;
+}
+
+.padding-half {
+  padding: .75rem;
+}
+.padding-half--top {
+  padding-top: .75rem;
+}
+.padding-half--right {
+  padding-right: .75rem;
+}
+.padding-half--bottom {
+  padding-bottom: .75rem;
+}
+.padding-half--left {
+  padding-left: .75rem;
+}
+
 .padding {
   padding: 1.5rem;
 }
