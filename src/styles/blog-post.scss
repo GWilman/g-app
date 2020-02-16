@@ -8,11 +8,23 @@
 
   .author-details {
     align-items: center;
+    justify-content: space-between;
     img {
       max-height: 30px;
       max-width: 30px;
       object-fit: contain;
       border-radius: 50%;
+      margin-top: 6px;
+    }
+  }
+
+  .likes {
+    &.active {
+      color: $primary;
+    }
+    svg {
+      cursor: pointer;
+      margin-right: 8px;
     }
   }
 

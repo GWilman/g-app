@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import Axios from 'axios';
 import * as moment from 'moment';
@@ -54,6 +54,20 @@ function Blog() {
     }
   }, []);
 
+  const likePost = (pos) => {
+    Axios
+    .post(`http://localhost:3002/reviews/${reviews[pos].id}`, {})
+    .then(res => {
+      console.log('res', res.data);
+      let reviewsCopy = JSON.parse(JSON.stringify(reviews));
+      reviewsCopy[pos].likes = reviewsCopy[pos].likes + 1;
+      setReviews(reviewsCopy);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
   return (
     <section id="blog" className="container">
       <div className="blog-stream">
@@ -61,7 +75,7 @@ function Blog() {
           <p>Loading...</p>
         }
         {reviews && reviews.length && reviews.map((review, index) =>
-          <BlogPost key={index} review={review} isLast={index === reviews.length-1} />
+          <BlogPost key={index} blogIndex={index} review={review} isLast={index === reviews.length-1} likePost={likePost} />
         )}
       </div>
     </section>

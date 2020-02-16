@@ -7,6 +7,15 @@
   }
 }
 
+// Transitions for use with CSSTransition
+.general-transition-appear {
+opacity: 0;
+}
+.general-transition-appear-active {
+opacity: 1;
+transition: opacity 400ms;
+}
+
 .padding-none {
   padding: 0rem !important;
 }
