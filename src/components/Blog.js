@@ -3,6 +3,8 @@ import { useRouteMatch } from 'react-router-dom';
 import Axios from 'axios';
 import * as moment from 'moment';
 import BlogPost from './BlogPost';
+import Spinner from './Spinner';
+import Storage from '../lib/storage';
 import '../styles/blog.scss';
 
 function Blog() {
@@ -19,13 +21,15 @@ function Blog() {
   // Similar to componentDidMount
   useEffect(() => {
     if (blogId) {
-      // get single blog
+      // get single blog post
       Axios
       .get(`http://localhost:3002/reviews/${blogId}`)
       .then(res => {
         console.log('res', res.data);
+        const likedReviews = Storage.getReviewsLiked();
         res.data.datePosted = moment(res.data.date_created, 'X').format('DD/MM/YYYY HH:mm');
         res.data.body = res.data.body.split('[break]');
+        res.data.userHasLiked = Array.isArray(likedReviews) ? likedReviews.indexOf(res.data.id) !== -1 : false;
         setReviews([res.data]);
         setLoading(false);
       })
@@ -34,14 +38,15 @@ function Blog() {
         setLoading(false);
       });
     } else {
-      // get all blogs
+      // get all blog posts
       Axios
       .get('http://localhost:3002/reviews')
       .then(res => {
-        console.log('res', res.data);
+        const likedReviews = Storage.getReviewsLiked();
         res.data.forEach(review => {
           review.datePosted = moment(review.date_created, 'X').format('DD/MM/YYYY HH:mm');
           review.body = review.body.split('[break]');
+          review.userHasLiked = Array.isArray(likedReviews) ? likedReviews.indexOf(review.id) !== -1 : false;
         });
         res.data.sort((a, b) => b.date_created - a.date_created);
         setReviews(res.data);
@@ -58,10 +63,16 @@ function Blog() {
     Axios
     .post(`http://localhost:3002/reviews/${reviews[pos].id}`, {})
     .then(res => {
-      console.log('res', res.data);
       let reviewsCopy = JSON.parse(JSON.stringify(reviews));
       reviewsCopy[pos].likes = reviewsCopy[pos].likes + 1;
+      reviewsCopy[pos].userHasLiked = true;
       setReviews(reviewsCopy);
+      const likedReviews = Storage.getReviewsLiked();
+      if (Array.isArray(likedReviews)) {
+        Storage.setReviewsLiked(likedReviews.concat(reviewsCopy[pos].id));
+      } else {
+        Storage.setReviewsLiked([reviewsCopy[pos].id]);
+      }
     })
     .catch(err => {
       console.log(err);
@@ -71,11 +82,16 @@ function Blog() {
   return (
     <section id="blog" className="container">
       <div className="blog-stream">
-        {loading &&
-          <p>Loading...</p>
-        }
-        {reviews && reviews.length && reviews.map((review, index) =>
-          <BlogPost key={index} blogIndex={index} review={review} isLast={index === reviews.length-1} likePost={likePost} />
+        {loading ? (
+          <div className="loading-container-medium center-everything">
+            <Spinner />
+          </div>
+        ) : (
+          <div>
+            {reviews && reviews.length && reviews.map((review, index) =>
+              <BlogPost key={index} blogIndex={index} review={review} isLast={index === reviews.length-1} likePost={likePost} />
+            )}
+          </div>
         )}
       </div>
     </section>

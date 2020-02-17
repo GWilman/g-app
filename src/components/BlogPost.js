@@ -36,9 +36,11 @@ function BlogPost({ review, blogIndex, isLast, likePost }) {
               <p className="text is-size-7">{review.datePosted}</p>
               </div>
           </div>
-          <div className={"likes " + (review.likes > 0 ? 'active' : '')}>
-            <FontAwesomeIcon onClick={() => likePost(blogIndex)} icon="thumbs-up" />
-            {review.likes > 0 && <span>{review.likes}</span>}
+          <div>
+            <button className={"button likes " + (review.userHasLiked ? 'liked' : 'is-primary')} onClick={() => likePost(blogIndex)}>
+              <FontAwesomeIcon icon="thumbs-up" />
+              {review.likes > 0 && <span>{review.likes}</span>}
+            </button>
           </div>
         </div>
         {!isLast && <hr />}

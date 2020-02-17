@@ -16,6 +16,7 @@ div.dark {
 
 // define variables
 $primary: #09d3ca;
+$secondary: #05716c;
 $text: var(--text-color);
 $title-color: var(--title-color);
 $body-color: var(--text-color);
@@ -24,3 +25,5 @@ $navbar-item-hover-color: $primary;
 $navbar-item-hover-background-color: var(--background-color);
 $navbar-item-active-color: $primary;
 $star-color: var(--star-color);
+$link: $primary;
+$link-hover: $secondary;

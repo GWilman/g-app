@@ -1,5 +1,5 @@
 .center-everything {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   &.vertically {
@@ -14,6 +14,16 @@ opacity: 0;
 .general-transition-appear-active {
 opacity: 1;
 transition: opacity 400ms;
+}
+
+.loading-container-small {
+  height: 100px;
+}
+.loading-container-medium {
+  height: 300px;
+}
+.loading-container-large {
+  height: 600px;
 }
 
 .padding-none {
