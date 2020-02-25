@@ -9,11 +9,11 @@
 
 // Transitions for use with CSSTransition
 .general-transition-appear {
-opacity: 0;
+  opacity: 0;
 }
 .general-transition-appear-active {
-opacity: 1;
-transition: opacity 400ms;
+  opacity: 1;
+  transition: opacity 400ms;
 }
 
 .loading-container-small {
@@ -93,32 +93,32 @@ transition: opacity 400ms;
   margin: 0rem !important;
 }
 .margin-none--top {
-  margin-top: 0rem;
+  margin-top: 0rem !important;
 }
 .margin-none--right {
-  margin-right: 0rem;
+  margin-right: 0rem !important;
 }
 .margin-none--bottom {
-  margin-bottom: 0rem;
+  margin-bottom: 0rem !important;
 }
 .margin-none--left {
-  margin-left: 0rem;
+  margin-left: 0rem !important;
 }
 
 .margin-half {
-  margin: .75rem;
+  margin: .75rem !important;
 }
 .margin-half--top {
-  margin-top: .75rem;
+  margin-top: .75rem !important;
 }
 .margin-half--right {
-  margin-right: .75rem;
+  margin-right: .75rem !important;
 }
 .margin-half--bottom {
-  margin-bottom: .75rem;
+  margin-bottom: .75rem !important;
 }
 .margin-half--left {
-  margin-left: .75rem;
+  margin-left: .75rem !important;
 }
 
 .margin {

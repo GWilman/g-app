@@ -88,8 +88,12 @@ function Blog() {
           </div>
         ) : (
           <div>
-            {reviews && reviews.length && reviews.map((review, index) =>
-              <BlogPost key={index} blogIndex={index} review={review} isLast={index === reviews.length-1} likePost={likePost} />
+            {reviews && reviews.length ? (
+              reviews.map((review, index) =>
+                <BlogPost key={index} blogIndex={index} review={review} isLast={index === reviews.length-1} likePost={likePost} />
+              )
+            ) : (
+              <p className="padding-double--top has-text-centered">No film reviews found.</p>
             )}
           </div>
         )}

@@ -11,18 +11,6 @@ function Navbar({ theme, toggleTheme }) {
   return (
     <nav id="navbar" className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <NavLink className="navbar-item" to="/">
-          <div className="center-everything">
-            <svg width="20px" height="20px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <g id="Artboard" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" fontFamily="SnellRoundhand, Snell Roundhand" fontSize="232" fontWeight="normal" letterSpacing="-1.55018306">
-                    <text id="g-logo">
-                        <tspan x="0" y="191">G</tspan>
-                    </text>
-                </g>
-            </svg>
-          </div>
-        </NavLink>
-
         <a role="button" className={"navbar-burger burger " + (menuState ? 'is-active' : '')} aria-label="menu" onClick={() => setMenuState(!menuState)}>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
