@@ -23,7 +23,7 @@ function Blog() {
     if (blogId) {
       // get single blog post
       Axios
-      .get(`http://localhost:3002/reviews/${blogId}`)
+      .get(`http://localhost:3002/review/${blogId}`)
       .then(res => {
         console.log('res', res.data);
         const likedReviews = Storage.getReviewsLiked();
@@ -40,7 +40,7 @@ function Blog() {
     } else {
       // get all blog posts
       Axios
-      .get('http://localhost:3002/reviews')
+      .get('http://localhost:3002/review')
       .then(res => {
         const likedReviews = Storage.getReviewsLiked();
         res.data.forEach(review => {
@@ -61,7 +61,7 @@ function Blog() {
 
   const likePost = (pos) => {
     Axios
-    .post(`http://localhost:3002/reviews/${reviews[pos].id}`, {})
+    .post(`http://localhost:3002/review/${reviews[pos].id}`, {})
     .then(res => {
       let reviewsCopy = JSON.parse(JSON.stringify(reviews));
       reviewsCopy[pos].likes = reviewsCopy[pos].likes + 1;
@@ -81,7 +81,7 @@ function Blog() {
 
   return (
     <section id="blog" className="container">
-      <div className="blog-stream">
+      <div className="narrow-container">
         {loading ? (
           <div className="loading-container-medium center-everything">
             <Spinner />

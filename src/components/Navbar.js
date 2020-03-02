@@ -27,6 +27,9 @@ function Navbar({ theme, toggleTheme }) {
           <NavLink className="navbar-item" activeClassName="is-active" to="/blog">
             Blog
           </NavLink>
+          <NavLink className="navbar-item" activeClassName="is-active" to="/contact">
+            Contact
+          </NavLink>
           <div className="is-hidden-desktop navbar-item" onClick={() => toggleTheme()}>
             {theme === 'dark' ? 'Light' : 'Dark'} Mode {theme === 'dark' ? <FontAwesomeIcon icon="sun" /> : <FontAwesomeIcon icon="moon" />}
           </div>

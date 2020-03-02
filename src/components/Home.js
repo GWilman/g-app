@@ -49,6 +49,7 @@ function Home() {
                     <p className="title margin-half--bottom">Get in touch</p>
                     <div className="content">
                       <p>Send me an email and I'll get back to you as soon as possible.</p>
+                      <NavLink to="/contact" className="button is-primary is-rounded is-small">Email me</NavLink>
                     </div>
                   </article>
                 </div>

@@ -27,3 +27,8 @@ section.container {
     margin: 0;
   }
 }
+
+div.narrow-container {
+  max-width: 600px;
+  margin: auto;
+}

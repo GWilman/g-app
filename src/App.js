@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Routes from './Routes';
 import './lib/fontawesome';
 import './App.scss';
+import './styles/shapes.scss';
 
 function App() {
 

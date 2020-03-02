@@ -7,6 +7,11 @@
   }
 }
 
+.is-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 // Transitions for use with CSSTransition
 .general-transition-appear {
   opacity: 0;

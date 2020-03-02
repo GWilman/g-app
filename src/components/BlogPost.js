@@ -39,7 +39,7 @@ function BlogPost({ review, blogIndex, isLast, likePost }) {
                   </div>
               </div>
               <div>
-                <button className={"button likes " + (review.userHasLiked ? 'liked' : 'is-primary')} onClick={() => likePost(blogIndex)}>
+                <button className={"button is-rounded likes " + (review.userHasLiked ? 'liked is-outlined' : 'is-primary')} onClick={() => likePost(blogIndex)}>
                   <FontAwesomeIcon icon="thumbs-up" />
                   {review.likes > 0 && <span>{review.likes}</span>}
                 </button>

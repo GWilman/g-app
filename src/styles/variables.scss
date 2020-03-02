@@ -27,3 +27,19 @@ $navbar-item-active-color: $primary;
 $star-color: var(--star-color);
 $link: $primary;
 $link-hover: $secondary;
+$button-background-color: $primary;
+$label-color: var(--text-color);
+
+// overwrite some common bulma classes
+.button {
+  background-color: $primary !important;
+  border: none !important;
+  color: #fff !important;
+  &:hover {
+    background-color: $secondary !important;
+  }
+}
+
+.input, .textarea {
+  color: var(--text-color) !important;
+}
